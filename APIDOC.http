@@ -13,10 +13,15 @@ Content-Type: application/json
     "department":"sales",
     "salary":35000,
     "location":"Thrissur",
-    "email":"hari@123"
+    "email":"hari@1234"
 }
 
-#api call for retrieve
+#api call for retrieving employee
 ###
 GET http://127.0.0.1:8000/employees/1/
+Accept: application/json
+
+#api call for deleting employee
+###
+DELETE http://127.0.0.1:8000/employees/3/
 Accept: application/json
