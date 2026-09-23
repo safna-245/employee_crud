@@ -25,3 +25,16 @@ Accept: application/json
 ###
 DELETE http://127.0.0.1:8000/employees/3/
 Accept: application/json
+
+#api call for updating employee
+###
+PUT http://127.0.0.1:8000/employees/1/
+Content-Type: application/json
+
+{
+    "name": "Shankar",
+    "department": "hr",
+    "salary": 55000,
+    "location": "Thrissur",
+    "email": "Shankar@123"
+}

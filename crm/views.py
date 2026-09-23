@@ -27,13 +27,14 @@ class EmployeeListCreateView(View):
 
         form_data =loads(request.body)
 
-        Employee.objects.create(
-            name=form_data.get("name"),
-            department=form_data.get("department"),
-            salary=form_data.get("salary"),
-            location = form_data.get("location"),
-            email=form_data.get("email")
-        )
+        # Employee.objects.create(
+        #     name=form_data.get("name"),
+        #     department=form_data.get("department"),
+        #     salary=form_data.get("salary"),
+        #     location = form_data.get("location"),
+        #     email=form_data.get("email")
+        # )
+        Employee.objects.create(**form_data)
 
         resonse_data={"message":"Employee created.."}
 
@@ -55,6 +56,16 @@ class EmployeeRetrieveUpdateDeleteView(View):
         Employee.objects.get(id=pk).delete()
 
         return JsonResponse({"message":"deleted.."})
+
+    def put(self,request,pk=None):
+
+        form_data=loads(request.body)
+
+        Employee.objects.filter(id=pk).update(**form_data)
+
+        response_data={"message":"updated.."}
+
+        return JsonResponse(response_data)
 
 
     
